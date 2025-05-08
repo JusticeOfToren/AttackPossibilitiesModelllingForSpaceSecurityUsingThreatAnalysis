@@ -68,7 +68,7 @@ else:
     try:
         entry = {}
         nvd_request=Request("https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={}".format(cve_to_test))
-        nvd_request.add_header("apiKey", "f50b8996-9126-47f5-9f14-c533095d14b0")
+        nvd_request.add_header("apiKey", "[INSERT API KEY HERE]")
         api_return = urlopen(nvd_request)
         encoding = api_return.info().get_content_charset('utf-8')
         api_return_read = api_return.read()
