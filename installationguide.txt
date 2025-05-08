@@ -1,0 +1,4 @@
+To install this project, the user should install Python3.12 from the Python official website: https://www.python.org/downloads/release/python-3120/
+The repository should then be cloned to a directory on the user's machine.
+The latest release for the MITRE CTI STIX2 dataset should be downloaded and unzipped at the top level of the repository i.e. [repository address]/[data here]. This should result in a directory at the top level of the repo named cti-master. This can be found here: https://github.com/mitre/cti/releases.
+Open a command prompt at the top level of the repository and run "pip install -r requirements.txt"

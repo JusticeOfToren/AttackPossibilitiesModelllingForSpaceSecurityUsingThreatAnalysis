@@ -1,0 +1,13 @@
+lightgbm==4.6.0
+matplotlib==3.10.1
+nltk==3.9.1
+numpy==2.2.4
+optuna==4.2.1
+pandas==2.2.3
+rake_nltk==1.0.6
+scikit_learn==1.6.1
+stix2==3.0.1
+taxii2_client==2.3.0
+tensorflow==2.19.0
+tensorflow_hub==0.16.1
+XlsxWriter==3.2.2

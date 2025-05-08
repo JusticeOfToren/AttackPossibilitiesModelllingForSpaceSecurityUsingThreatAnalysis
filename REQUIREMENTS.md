@@ -1,0 +1,2 @@
+This project requires Python 3.12 and a computer with approximately 8Gb of RAM, except for pandasdataframebuild.py, which requires ~64Gb of RAM.
+If using a non-windows computer, please edit the paths in the programs to follow the path format for your system.

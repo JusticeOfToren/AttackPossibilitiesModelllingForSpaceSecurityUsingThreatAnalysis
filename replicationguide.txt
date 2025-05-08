@@ -1,0 +1,24 @@
+To replicate the investigation and analysis performed for this project, take the following steps.
+1. Follow the steps of the installation guide
+2. Make a copy of ThreatActorTechniqueFile.xlsx in which you clear all data other than headings from all sheets.
+3. Delete all datasets from the Datasets directory in the project repository.
+4. Execute the program mitreretrieve.py, and copy the data from the resultant sheet, "threatactortechniques.xlsx", to the "AttackTechniques" sheet in your copy of ThreatActorTechniqueFile.xlsx
+5. Using OKRL, ETDA and any other sources, compile a list of aerospace threat actors
+6. For each aerospace threat actor, perform a deeper search of the threat intelligence sources such as ORKL and determine whether an aerospace threat actor likely or definitely attacked the space sector.
+In either case, record the aerospace threat actor in the "Threat Actors" sheet of ThreatActorTechniqueFile.xlsx, noting "Likely" for the "Targeted Space" column where a space attack is likely but not confirmed, "Yes" where it is confirmed and "Unknown" where no data can be found.
+If "Likely" or "Yes", list the sources for that claim in the "Attacks in Space" column, and explain reasoning in the "Explanation" column
+7. During the course of Step 4, where a source attributes a MITRE technique to an aerospace threat actor, and that technique is not listed in the AttackTechniques data for that threat actor, add it to the "AttackTechniquesNotInMitre" sheet for that threat actor, adding "not-in-mitre" as the "Threat Actor ID" if the threat actor isn't listed in the MITRE CTI sheet. Add the source for the addition to the "References" column of the sheet
+8. Download the new version of ThreatActorTechniqueFile.xlsx and place in the Datasets directory
+9. Download the csv version of the known exploited vulnerabilities catalog at https://www.cisa.gov/known-exploited-vulnerabilities-catalog, and move it to the Datasets directory
+10. Using ORKL and other threat intelligence sources, compile a list of CVEs used by aerospace attackers, and record them in one column in a spreadsheet. Cell A1 of the sheet should be called "CVE", with the CVEs below it, one per cell. Name the sheet "KnownUsedInAerospace" and the spreadsheet "CVE.xlsx"
+11. In the ATTandCKProbabilisticModel directory, run calculateattribution.py, uncommenting one of lines 293,295,297,299, and record the results. Repeat with one of those lines uncommented until all have been run.
+12. In the ATTandCKProbabilisticModel directory, run techniquecomplexity.py and record the results.
+13. In the ATTandCKProbabilisticModel directory, run top10.py and record the results.
+14. In the CVEFeatureCreation directory, run featurecreator.py, and ensure the output file, "cvefeatures.csv" is placed in the Datasets directory.
+15. In the CVEFeatureCreation directory, run categoricalconverter.py and ensure the output file, "cvemldataset.csv" is placed in the Datasets directory.
+16. In the CVEML directory, run pandasdataframebuild.py and ensure the output files, storex.pkl and storey.pkl are placed in the CVEML directory.
+As this program requires very high RAM usage to build its data structures, using a computer with 64Gb of RAM for this program is recommended.
+17. In the CVEML directory, run optunaparameteroptimiser-classifier.py and update the hyperparameters in lightgbmmodelling-classifier.py to match the program's recommendations.
+18. In the CVEML directory, run lightgbmmodelling-classifier.py and record the accuracy and feature importance data. Comment line 59 and uncomment line 61 and rerun, recording the resultant table. Then comment line 61, uncomment line 62, rerun, and record the confusion matrix displays.
+19. In the CWETopX directory, run cwetopxcalculator.py and record the results.
+20. Compare results with the results recorded in the research paper for this project.
