@@ -55,7 +55,7 @@ if user_input == "1":
     # y_valid_pred = model_lgbm.predict(X_valid)
     print('Training accuracy {:.4f}'.format(model.score(X_train,y_train)))
     print('Testing accuracy {:.4f}'.format(model.score(X_test,y_test)))
-    print(classification_report(y_test,model.predict(X_test)))
+    print(classification_report(y_test,model.predict(X_test),digits=4))
     lightgbm.plot_importance(model, title="LightGBM Feature Importance", max_num_features=20, figsize=(8, 6))
     # plt.show()
     # RocCurveDisplay.from_predictions(y_test,y_predict)
@@ -68,7 +68,6 @@ else:
     try:
         entry = {}
         nvd_request=Request("https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={}".format(cve_to_test))
-        nvd_request.add_header("apiKey", "[INSERT API KEY HERE]")
         api_return = urlopen(nvd_request)
         encoding = api_return.info().get_content_charset('utf-8')
         api_return_read = api_return.read()
