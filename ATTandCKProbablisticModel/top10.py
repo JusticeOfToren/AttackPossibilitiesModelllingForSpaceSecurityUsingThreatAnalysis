@@ -3,8 +3,8 @@
 Module Name: top10.py
 Description: Outputs the top 10 mitre techniques in aerospace
 Author: Benjamin McCullough
-Date: Last Updated: 24/04/2025
-Version: 1.0
+Date: Last Updated: 14/02/2026
+Version: 1.1
 """
 
 import math
@@ -29,10 +29,13 @@ def get_occurance_dictionary(techniques,threatactors):
     occurdict={}
     listoftechniques=[]
     for i, techniquelists in enumerate(techniques):
-        if threatactors[i][1]:  # If current threat actor is active in aerospace
+        if threatactors[i][1] and threatactors[i][2]>=0.75:   # If current threat actor is active in aerospace and has at least likely attacked space
+            current_attacker_techniques_list=[]
             for techniquelist in techniquelists: # Merges the multiple technique lists per attacker into one technique list for all attackers
                 for technique in techniquelist:
-                    listoftechniques.append(technique)
+                    if technique not in current_attacker_techniques_list: # If a technique shows up multiple times for an attacker
+                        current_attacker_techniques_list.append(technique)
+                        listoftechniques.append(technique)
     for technique in listoftechniques:
         if technique not in occurdict.keys(): # If the technique isn't in the occurdict, add it and count its occurances
             x = listoftechniques.count(technique)
@@ -87,8 +90,8 @@ def get_occurances_without_subtechniques(techniques,threatactors):
     for technique in listoftechniques:
         if technique not in usedlist:
             usedlist.append(technique)
-            trunctech=math.trunc(technique) # Gets the supertechnique from a subtechnique
             x = listoftechniques.count(technique) 
+            trunctech=math.trunc(technique) # Gets the supertechnique from a subtechnique
             if trunctech not in occurdictnosub.keys(): # If the current technique(or supertechnique if the current is a subtechnique) hasn't been counted
                 occurdictnosub[trunctech] = x
             else:

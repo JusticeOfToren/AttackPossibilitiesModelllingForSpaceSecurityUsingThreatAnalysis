@@ -3,8 +3,8 @@
 Module Name: tatfloader.py
 Description: Build python data structures from datasets
 Author: Benjamin McCullough
-Date: Last Updated: 24/04/2025
-Version: 1.0
+Date: Last Updated: 14/02/2026
+Version: 1.1
 """
 
 import pandas as pd
@@ -89,7 +89,7 @@ def load_dataset():
                     space_target_value = 0.75
                 else:
                     space_target_bool = True # Setting true for all aerospace to make it easier to pull aerospace data from the arrays
-                    space_target_value = 0.5
+                    space_target_value = 0
                 threat_actor_name=targeted_space["Threat Actor"][i]
                 x = threat_actor_names_array.index([threat_actor_name,False, 0]) # All threat actors have this value as default
                 threat_actor_names_array[x]=[threat_actor_name,space_target_bool,space_target_value]

@@ -3,8 +3,8 @@
 Module Name: cwetopxcalculator.py
 Description: Determines and outputs top 10 cwes in aerospace attackers
 Author: Benjamin McCullough
-Date: Last Updated: 24/04/2025
-Version: 1.0
+Date: Last Updated: 22/02/2026
+Version: 1.1
 """
 
 import csv
@@ -41,7 +41,7 @@ def create_occur_dict(filename='Datasets/cvefeatures.csv'):
 def print_top_ten(occur_dict):
     top_cwe = []
     print("-------------Top 10 CWEs in Aerospace--------------")
-    for i in range(10):
+    for i in range(20):
         if len(occur_dict) == 0:
             print("All CWEs expended")
             break
